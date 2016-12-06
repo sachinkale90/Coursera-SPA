@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="angular.min.js"></script>
+  <script src ="calcApp.js"></script>
+  <title>Name Calculator</title>
+</head>
+<body ng-app="NameCalculator">
+  <h1>Name Calculator</h1>
+<div ng-controller="NameCalculatorController">
+  <div>
+  Your Name:<input type="text" ng-model="name"
+            ng-keyup="displayNumeric();displayLength();">
+</div>
+<div>Total numeric value of person's name is {{TotalValue}}</div>
+<div>String Length:{{displayStringLength}}</div>
+</div>
+
+</body>
+
+</html>
