@@ -7,22 +7,26 @@
  function LunchCheckController($scope){
    $scope.foodList = '';
    $scope.Message = '';
-   $scope.Textcolor = 'black';
+   $scope.textColor = 'black';
+   $scope.borderColor = 'black';
    $scope.FoodListSeparatedWithComma = [];
    $scope.checkFoodList = function(){
       var length = getLength($scope.foodList);
       switch (true) {
         case length > 0 && length <=3:
                 $scope.Message = "Enjoy!";
-                $scope.Textcolor = 'green';
+                $scope.textColor = 'green';
+                $scope.borderColor = 'green';
         break;
         case length > 3:
                 $scope.Message = "Too much!";
-                $scope.Textcolor = 'red';
+                $scope.textColor = 'red';
+                $scope.borderColor = 'red';
         break;
         default:
-        $scope.Message = '';
-        $scope.Textcolor = 'black';
+        $scope.Message = 'Please enter data';
+        $scope.textColor = 'red';
+        $scope.borderColor = 'black';
         break;
 
       }
