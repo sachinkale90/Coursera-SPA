@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="angular.min.js"></script>
+  <script src ="app.js"></script>
+  <title>Lunch Status</title>
+</head>
+<body ng-app="LunchCheck">
+  <h1>Lunch Status</h1>
+<div ng-controller="LunchCheckController">
+  <div>
+  <input style="border:1px solid {{Textcolor}}" type="text" ng-model="foodList"> <span style="color:{{Textcolor}}">{{Message}}</span><br/><br/>
+  <button ng-click="checkFoodList()">Check If Too Much</button>
+
+</div>
+</div>
+
+</body>
+
+</html>
