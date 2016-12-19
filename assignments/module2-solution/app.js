@@ -28,20 +28,19 @@ var boughtItemsList = [];
              toBuyItemsLength : $scope.toBuyItems.length,
              boughtItemsLength : $scope.boughtItemsList.length
          };
-         $scope.$broadcast('parent',itemsListLengths);
+         if($scope.toBuyItems.length === 0){
+           $scope.ToBuyMessage = 'Everything is bought';
+         }
+         $scope.$broadcast('parent',$scope.boughtItemsList.length);
    }
  };
  ChildShoppingController.$inject = ['$scope'];
  function ChildShoppingController($scope){
 
    $scope.$on('parent', function (event, data) {
-    if(data.boughtItemsLength > 0){
+    if(data > 0){
       $scope.AlreadyBroughtMessage = '';
     }
-    if(data.toBuyItemsLength === 0){
-      $scope.ToBuyMessage = 'Everything is bought';
-    }
-
   });
 
  };
