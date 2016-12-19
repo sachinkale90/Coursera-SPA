@@ -8,15 +8,15 @@
   <h2>Shopping Lists</h2>
   <div ng-controller="ParentShoppingController as parent">
     <h4>To Buy List</h4>
-    {{ToBuyMessage}}
+    {{parent.message}}
     <ul>
-      <li ng-repeat="item in toBuyItems">Buy {{item.quantity}} {{item.name}} <button ng-click="AddToBroughtList($index)">Bought</button></li>
+      <li ng-repeat="item in parent.items">Buy {{item.quantity}} {{item.name}} <button ng-click="parent.AddToBroughtList(item)">Bought</button></li>
     </ul>
     <div ng-controller="ChildShoppingController as child">
 <h4>Already Bought List</h4>
-      {{AlreadyBroughtMessage}}
+      <div ng-if="!child.items.length">{{child.message}}</div>
       <ul>
-        <li ng-repeat="item in boughtItemsList">Bought {{item.quantity}} {{item.name}}</li>
+        <li ng-repeat="item in child.items">Bought {{item.quantity}} {{item.name}}</li>
       </ul>
     </div>
   </div>
