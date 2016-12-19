@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="angular.min.js"></script>
+  <script src ="customApp.js"></script>
+  <title>Name Calculator</title>
+</head>
+<body ng-app="CustomModuleApp">
+  <h1>Custom Application</h1>
+<div ng-controller="CustomCtrl">
+  Original Message :{{sayMessage()}} <br>
+  Filtered Message : {{sayLoveMessage()}}<br>
+  Truth:{{sayLoveMessage()| truth:'Sachin':'Sunny'}}<br>
+  Big Truth : {{sayLoveMessage()| truth:'Sachin':'Sunny' | uppercase}}<br>
+
+  <input type="text" ng-model ="Name"/><br>
+  Typed name is :{{Name}} 
+</div>
+
+</body>
+
+</html>
