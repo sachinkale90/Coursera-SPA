@@ -24,10 +24,6 @@ var boughtItemsList = [];
          };
          $scope.boughtItemsList.push(newItem);
          $scope.toBuyItems.splice(index,1);
-         var itemsListLengths = {
-             toBuyItemsLength : $scope.toBuyItems.length,
-             boughtItemsLength : $scope.boughtItemsList.length
-         };
          if($scope.toBuyItems.length === 0){
            $scope.ToBuyMessage = 'Everything is bought';
          }
@@ -36,13 +32,11 @@ var boughtItemsList = [];
  };
  ChildShoppingController.$inject = ['$scope'];
  function ChildShoppingController($scope){
-
    $scope.$on('parent', function (event, data) {
     if(data > 0){
       $scope.AlreadyBroughtMessage = '';
     }
   });
-
  };
 
 })();
