@@ -8,13 +8,8 @@
   <div ng-controller="NarrowItDownController  as menu">
   <input type="text" ng-model="menu.itemName" placeholder="item name to be searched">
   <button ng-click="menu.searchItem();">Narrow It Down For Me!</button><br>
-  {{menu.message}}
-<ol>
-  <li ng-repeat="item in menu.found">
-    <found-items></found-items>
-    <button ng-click="menu.narrowItemList($index);">Don't want this one!</button>
-  </li>
-</ol>
+{{menu.message}}
+ <found-items items="menu.items" on-remove="menu.narrowItemList($index);" ></found-items>
 </div>
 </body>
 </html>
