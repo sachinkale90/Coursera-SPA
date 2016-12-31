@@ -34,8 +34,7 @@
          console.log(errorMessage);
        });
      };
-   }
-   
+   }   
    menu.narrowItemList = function(itemIndex){
      menu.found.splice(itemIndex, 1);
    }
