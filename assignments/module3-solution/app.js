@@ -21,21 +21,23 @@
      menu.searchItem = function(){
        if(menu.itemName === ""){
          menu.message = "Nothing found";
+         menu.found = null;
        }else{
        var promise = MenuSearchService.getMatchedMenuItems (menu.itemName);
        promise.then(function(result){
          if(result.length === 0){
            menu.message = "Nothing found";
+           menu.found = null;
          }else{
            menu.message ="";
+           menu.found = result;
        }
-        menu.found = result;
        }).catch(function(errorMessage){
          console.log(errorMessage);
        });
      };
    }
-   menu.narrowItemList = function(itemIndex){     
+   menu.narrowItemList = function(itemIndex){
      menu.found.splice(itemIndex, 1);
    }
  };
