@@ -22,22 +22,18 @@
        if(menu.itemName === ""){
          menu.message = "Nothing found";
        }else{
-       var promise = MenuSearchService.getMatchedMenuItems (menu.itemName);
+       var promise = MenuSearchService.getMatchedMenuItems(menu.itemName);
        promise.then(function(result){
          if(result.length === 0){
            menu.message = "Nothing found";
          }else{
            menu.message ="";
+           menu.found = result.data.menu_items;
        }
-        menu.found = result;
        }).catch(function(errorMessage){
          console.log(errorMessage);
        });
      };
-   }
-   
-   menu.narrowItemList = function(itemIndex){
-     menu.found.splice(itemIndex, 1);
    }
  };
 
@@ -49,17 +45,9 @@
          method:"GET",
          url:(ApiBasePath+"/menu_items.json")
        }).then(function(result){
-          var foundItems = [];
-          angular.forEach(result.data, function(value, key){
-             angular.forEach(value, function(v, key){
-              if(v.description.indexOf(searchTerm) !== -1){
-                 foundItems.push(v);
-              }
-             });
-          });
-          return foundItems;
-       });
+         var foundItems = result.filter()
+       })
      };
-   };
 
+   };
 })();
