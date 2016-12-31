@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Menu Search</title>
+</head>
+<body ng-app="MenuSeachApp">
+  <h2>Menu Search</h2>
+  <div ng-controller="NarrowItDownController  as menu">
+  <input type="text" ng-model="menu.itemName" placeholder="item name to be searched">
+  <button ng-click="menu.searchItem();">Narrow It Down For Me!</button><br>
+  {{menu.message}}
+<ol>
+  <li ng-repeat="item in menu.found">
+    <found-items></found-items>
+    <button ng-click="menu.narrowItemList($index);">Don't want this one!</button>
+  </li>
+</ol>
+</div>
+</body>
+
+</html>
